@@ -1,0 +1,126 @@
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+    --transparent-white: hsla(0, 0%, 100%, 0.75);
+    --very-light-gray: hsl(0, 0%, 95%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--very-light-gray);
+}
+
+/* Root */
+#root {
+    min-height: 100vh;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+@media (min-width: 768px) {
+    #root {
+        display: flex;
+        align-items: center;
+
+        padding: 0;
+    }
+}
+
+/* Card */
+.main-card {
+    display: grid;
+    grid-template: repeat(3, 400px) / minmax(0, 1fr);
+
+    width: 100%;
+
+    border-radius: 10px;
+
+    /* The childs are going to obey this */
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .main-card {
+        grid-template: minmax(0, 1fr) / repeat(3, minmax(0, 1fr));
+
+        height: 400px;
+    }
+}
+
+.vehicle-card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 43.5px;
+}
+
+.vehicle-card * {
+    margin: 0;
+}
+
+.main-card__sedan-card {
+    background-color: var(--bright-orange);
+}
+
+.main-card__suv-card {
+    background-color: var(--dark-cyan);
+}
+
+.main-card__luxury-card {
+    background-color: var(--very-dark-cyan);
+}
+
+.vehicle-image {
+    width: 65px;
+    margin-bottom: 15%;
+}
+
+.vehicle-article {
+    display: grid;
+    gap: 15px;
+
+    color: var(--very-light-gray);
+
+    margin-bottom: auto;
+}
+
+.vehicle-title {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 46px;
+    font-weight: 700;
+}
+
+.vehicle-description {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 15px;
+}
+
+.vehicle-button {
+    width: fit-content;
+    padding: 10px 15px;
+
+    border-style: none;
+    border-radius: 25px;
+    background-color: var(--very-light-gray);
+    mix-blend-mode: screen;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: all 0.1s ease-out;
+}
+
+.vehicle-button:hover {
+    border: 1px solid var(--very-light-gray);
+    background-color: transparent;
+    mix-blend-mode: normal;
+    color: var(--very-light-gray);
+}
